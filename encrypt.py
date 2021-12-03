@@ -3,10 +3,11 @@ parola, numef, numeg = sys.argv[1:]
 f = open(numef, "r")
 g = open(numeg, "wb")
 
-text = f.readline()
+cheie_criptare = parola
+text = f.read()
 
 for i in range(len(text)):
-    text = text[:i] + chr(ord(text[i]) ^ ord(parola[i % len(parola)])) + text[(i + 1):]
+    text = text[:i] + chr(ord(text[i]) ^ ord(cheie_criptare[i % len(cheie_criptare)])) + text[(i + 1):]
 
-g.write(bytes(text, "utf-8"))
+g.write(text)
 g.close()
