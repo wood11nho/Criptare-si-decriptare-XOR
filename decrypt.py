@@ -6,8 +6,6 @@ g = open(numeg, "w")
 cheie_criptare = parola
 text = f.read()
 
-text = text.decode("utf-8")
-
 for i in range(len(text)):
     text = text[:i] + chr(ord(text[i]) ^ ord(cheie_criptare[i % len(cheie_criptare)])) + text[(i + 1):]
 
